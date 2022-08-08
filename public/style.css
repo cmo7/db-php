@@ -1,0 +1,9 @@
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+main > div {
+    box-sizing: border-box;
+    width: 50%;
+}
