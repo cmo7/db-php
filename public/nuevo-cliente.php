@@ -36,10 +36,18 @@
     }
     ?>
     <form action="nuevo-cliente.php" method="post">
-        <label for="nombre">Nombre</label><input type="text" name="nombre" id="nombre"> <br>
-        <label for="apellido">Apellido</label><input type="text" name="apellido" id="apellido"><br>
-        <label for="email">Email</label><input type="email" name="email" id="email"><br>
-        <label for="empresa">Id Empresa</label><input type="number" name="empresa" id="empresa"><br>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre"> 
+        <br>
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <br>
+        <label for="empresa">Id Empresa</label>
+        <input type="number" name="empresa" id="empresa">
+        <br>
         <input type="submit" value="Enviar">
     </form>
 </body>

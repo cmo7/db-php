@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>TEST</h1>
+    <h1>Tu numero es</h1>
+    <?php 
+        echo $_GET["numero"];
+    ?>
 </body>
 </html>
