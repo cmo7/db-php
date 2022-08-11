@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["user-id"])) {
+    header("location: ./auth/signup.php");
+}
+
 // Conectar con la base de datos
 $frase_conexion = "host=db "
     . "port=5432 "
@@ -20,9 +26,22 @@ $conexion = pg_connect($frase_conexion);
 
 <body>
     <h1>Lista de Tareas</h1>
+    La id guardada en la sesión es:
+    <?php 
+        echo $_SESSION["user-id"];
+    ?>
+
+    <div class="barra-usuario">
+        <a href="./auth/signup.php">Registro</a>
+        <a href="./auth/login.php">Entrar</a>
+        <a href="./auth/logout.php">Salir</a>
+    </div>
+
     <a href="./formulario-nueva-tarea.php">Crear Tarea</a>
     <?php
-    $consulta = "SELECT id, nombre, fecha_limite, descripcion FROM tareas;";
+    $consulta = "SELECT id, nombre, fecha_limite, descripcion FROM tareas" .
+                " WHERE id_usuario = " . $_SESSION["user-id"] . ";";
+
     $resultado = pg_query($conexion, $consulta);
     while ($fila = pg_fetch_array($resultado)) {
     ?>

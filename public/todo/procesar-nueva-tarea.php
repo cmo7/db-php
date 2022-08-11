@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $frase_conexion = "host=db " 
                     . "port=5432 " 
                     . "dbname=postgres "
@@ -9,11 +10,13 @@
     $consulta = "INSERT INTO tareas ("
                 . "nombre, "
                 . "fecha_limite, "
-                . "descripcion "
+                . "descripcion, "
+                . "id_usuario "
                 . ") VALUES ("
                 . "'" . $_POST["nombre"] . "', "
                 . "'" . $_POST["fecha-limite"] . "', "
-                . "'" . $_POST["descripcion"] . "' "
+                . "'" . $_POST["descripcion"] . "', "
+                . "'" . $_SESSION["user-id"] . "' "
                 . ");";
     
     pg_query($conexion, $consulta);
